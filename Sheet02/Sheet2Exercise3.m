@@ -3,7 +3,7 @@
 ########################################
 #Input values
 a = 4+i*5; #complex number to convert
-number = 3; #number := n-th root
+number = 4; #number := n-th root
 ########################################
 
 #exercise 2.3 a
@@ -29,15 +29,22 @@ endfunction
 complexNumber = convert_Pol_to_C(r, theta);
 
 #exercise 2.3 b
-function plot_primitive_nth_roots_of_unity(number)
+function plot_nth_roots_of_unity(number)
   roots = zeros(1,number);
   help3 = 0+i*(2*pi);
   for n = 0:(number-1)
     roots(n+1) = exp(help3/number)^n;
   endfor
+  
   figure(1);
   hold;
-  compass(roots)
+  compass(roots, 'b')
+  for o = 1:number
+    if gcd(o, number) == 1
+      compass(roots(o), 'r')
+    endif
+  endfor
+  
   t = linspace(0,2*pi,100)'; 
   circsx = cos(t); 
   circsy = sin(t); 
@@ -48,9 +55,10 @@ function plot_primitive_nth_roots_of_unity(number)
   title ("Drawing primitive n-th roots of unity");
   xlabel ("Re(z)");
   ylabel ("Im(z)i");
+  legend ('n-th roots', 'unit circle', 'primitive = red', "location", "northeastoutside");
 endfunction
 
-plot_primitive_nth_roots_of_unity(number);
+plot_nth_roots_of_unity(number);
 
 #exercise 2.3 c
 grad = (2*pi / 360);
