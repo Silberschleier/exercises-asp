@@ -1,0 +1,6 @@
+Wir wissen, dass in dem Wavefile 6 Tasten gedrückt werden. Jede Taste wird gleich lange gedrückt. Also müssen wir das
+Wavefile in 6 gleichgroße Stücke teilen. Somit beinhaltet jedes Stück des Files einen Tastendruck.
+Eine Taste besteht aus der Summe von 2 Sinusfunktionen mit je einer unterschiedlichen Frequenzen.
+Führen wir nun eine FFT auf unserem Stück des Wavefiles aus, so erhalten wir die beiden Frequenzen der Sinusfunktion.
+Aus der gegebenen Tabelle, können wir mit diesen beiden Frequenzen ablesen, welche Taste gedrückt wurde.
+Gehen wir alle unserer Stücke nacheinander durch, so könen wir die gewählte Nummer rekonstruieren.
